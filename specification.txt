@@ -5,4 +5,19 @@ File Naming Convention
 - Use "-" to separate multi-word files. 
 
 Branching
-- We "-" to separate multi-word branch names
+  - We "-" to separate multi-word branch names
+    - Feature 
+        - Example when you have a branch for a feature...
+          "feature-whatever-your-feature-is"
+    - Bug 
+        - Example when you have a branch for a fix...
+          "bug-whatever-your-fix-is"
+    
+
+Committing
+    - Feature
+      - Whenever you are committing a feature or improvement do...
+        "feat: add new button"
+    - Bug Fixes
+      - Whenever you are committing a fix do...
+        "bug: add this fix"
