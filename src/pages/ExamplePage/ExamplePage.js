@@ -1,1 +1,3 @@
-// Some placeholder file so we may commit this folder to repo.
+const ExamplePage = () => <div>testing page</div>;
+
+export default ExamplePage;
