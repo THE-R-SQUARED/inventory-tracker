@@ -20,7 +20,12 @@
   },
   "plugins": ["prettier", "react"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "jsx-a11y/href-no-hash": ["off"],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
