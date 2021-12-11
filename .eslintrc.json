@@ -4,11 +4,7 @@
     "es2021": true,
     "jest": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["prettier", "airbnb"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -16,16 +12,16 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": ["error"],
+    "prettier/prettier": "error",
     "jsx-a11y/href-no-hash": ["off"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "max-len": [
       "warn",
       {
         "code": 80,
-        "tabWidth": 4,
+        "tabWidth": 2,
         "comments": 20,
         "ignoreComments": false,
         "ignoreTrailingComments": true,
