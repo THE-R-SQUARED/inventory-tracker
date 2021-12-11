@@ -1,1 +1,3 @@
-export { default } from './ExamplePage';
+import ExamplePage from './ExamplePage'
+
+export default ExamplePage
