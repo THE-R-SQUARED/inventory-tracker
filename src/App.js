@@ -1,9 +1,11 @@
 import logo from './assets/logo.svg';
 import './styles/app.css';
+import Modal from './components/Modal';
 
 function App() {
   return (
     <div className='App'>
+      <Modal></Modal>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>
@@ -18,6 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <Modal></Modal>
     </div>
   );
 }
