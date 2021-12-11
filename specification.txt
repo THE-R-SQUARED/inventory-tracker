@@ -1,5 +1,5 @@
 Folder Structure
-- https://medium.com/@kumarvinoth/finally-a-better-react-js-folder-structure-821a2210835
+  - https://medium.com/@kumarvinoth/finally-a-better-react-js-folder-structure-821a2210835
 
 File Naming Convention
 - Use "-" to separate multi-word files. 
@@ -12,12 +12,24 @@ Branching
     - Bug 
         - Example when you have a branch for a fix...
           "bug-whatever-your-fix-is"
-    
 
 Committing
-    - Feature
-      - Whenever you are committing a feature or improvement do...
-        "feat: add new button"
-    - Bug Fixes
-      - Whenever you are committing a fix do...
-        "bug: add this fix"
+  - Feature
+    - Whenever you are committing a feature or improvement do...
+      "feat: add new button"
+  - Bug Fixes
+    - Whenever you are committing a fix do...
+      "bug: add this fix"
+
+Code structure & style
+  - We will be using Prettier for code formatting
+      - You can install prettier here 
+        - https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+      - make sure to have it format against local config
+        - https://glebbahmutov.com/blog/configure-prettier-in-vscode/
+  - We will incorporate Airbnb's styling conventions: 
+      - https://airbnb.io/javascript/react/
+      - https://github.com/airbnb/javascript
+  - Guide used to setup our project
+      - https://enlear.academy/how-to-set-up-airbnb-style-guide-82413ea6c5f2
+      - https://javascript.plainenglish.io/setting-eslint-and-prettier-on-a-react-typescript-project-2021-22993565edf9
