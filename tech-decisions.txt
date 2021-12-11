@@ -1,0 +1,7 @@
+Technologies of interest: 
+
+Tables:
+  - https://react-table.tanstack.com/docs/examples/basic
+
+UI
+  - https://react.semantic-ui.com/
