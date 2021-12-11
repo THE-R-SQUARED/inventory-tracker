@@ -1,3 +1,3 @@
-const ExampleComponent = () => <div>testing</div>;
+const ExampleComponent = () => <div>testing component</div>;
 
 export default ExampleComponent;

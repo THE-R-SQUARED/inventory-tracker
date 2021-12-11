@@ -1,1 +1,3 @@
-// Some placeholder file so we may commit this folder to repo.
+const ExampleLayout = () => <div>testing layout</div>;
+
+export default ExampleLayout;
