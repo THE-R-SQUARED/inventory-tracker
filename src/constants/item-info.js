@@ -1,4 +1,4 @@
-// Some placeholder file so we may commit this folder to repo
+// Constants related to item form info
 
 export const SIZES = [
   'N/A',

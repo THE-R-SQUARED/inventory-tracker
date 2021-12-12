@@ -1,13 +1,14 @@
 import React from 'react'
 import { Button, Modal, Form } from 'semantic-ui-react'
+import WIDTHS from '../../constants/form-styling'
 
 const AddItem = () => {
-  const [open, setOpen] = React.useState(false)
+  const [open, isModalOpen] = React.useState(false)
 
   return (
     <Modal
-      onClose={() => setOpen(false)}
-      onOpen={() => setOpen(true)}
+      onClose={() => isModalOpen(false)}
+      onOpen={() => isModalOpen(true)}
       open={open}
       trigger={<Button>Add Item</Button>}
     >
@@ -15,27 +16,23 @@ const AddItem = () => {
       <Modal.Content>
         <Form>
           <Form.Group>
-            <Form.Input required label="Name" placeholder="Air Jordan 1 High Mocha" width={7} />
-            <Form.Input required label="Size" placeholder="10" width={2} />
-            <Form.Input label="Color" placeholder="Brown" width={3} />
-            <Form.Input label="SKU" placeholder="555088-105" width={4} />
+            <Form.Input
+              required
+              label="Name"
+              placeholder="Air Jordan 1 High Mocha"
+              width={WIDTHS.XLARGE}
+            />
+            <Form.Input required label="Size" placeholder="10" width={WIDTHS.SMALL} />
+            <Form.Input label="Color" placeholder="Brown" width={WIDTHS.MEDIUM} />
+            <Form.Input label="SKU" placeholder="555088-105" width={WIDTHS.LARGE} />
           </Form.Group>
           <Form.Group>
-            <Form.Input label="Purchased Where" placeholder="Footlocker" width={4} />
-            <Form.Input label="Purchase Date" placeholder="08/25/2022" width={3} />
-            <Form.Input label="Retail Price" placeholder="$180" width={2} />
-            <Form.Input label="Tax" placeholder="$3.50" width={2} />
-            <Form.Input label="Shipping" placeholder="$10" width={2} />
-            <Form.Input required label="Purchase Total" placeholder="$204" width={2} />
-          </Form.Group>
-          <Form.Group>
-            {/* Can move sell info into different modal */}
-            <Form.Input label="Sold Where" placeholder="StockX" width={4} />
-            <Form.Input label="Sell Date" placeholder="08/26/2022" width={3} />
-            <Form.Input label="Sell Price" placeholder="$1000" width={2} />
-            <Form.Input label="Tax" placeholder="$3.50" width={2} />
-            <Form.Input label="Shipping" placeholder="$10" width={2} />
-            <Form.Input label="Sell Total" placeholder="$950" width={2} />
+            <Form.Input label="Purchased Where" placeholder="Footlocker" width={WIDTHS.LARGE} />
+            <Form.Input label="Purchase Date" placeholder="08/25/2022" width={WIDTHS.MEDIUM} />
+            <Form.Input label="Retail Price" placeholder="$180" width={WIDTHS.SMALL} />
+            <Form.Input label="Tax" placeholder="$3.50" width={WIDTHS.SMALL} />
+            <Form.Input label="Shipping" placeholder="$10" width={WIDTHS.SMALL} />
+            <Form.Input required label="Purchase Total" placeholder="$204" width={WIDTHS.SMALL} />
           </Form.Group>
           <Form.Group>
             <Form.Input
@@ -43,20 +40,20 @@ const AddItem = () => {
               placeholder="Sold to John Smith at Kobey's Swapmeet"
               control="textarea"
               rows="3"
-              width="16"
+              width={WIDTHS.ABSOLUTE}
             />
           </Form.Group>
         </Form>
       </Modal.Content>
       <Modal.Actions>
-        <Button color="black" onClick={() => setOpen(false)}>
+        <Button color="black" onClick={() => isModalOpen(false)}>
           Cancel
         </Button>
         <Button
           content="Add to Inventory"
           labelPosition="right"
           icon="checkmark"
-          onClick={() => setOpen(false)}
+          onClick={() => isModalOpen(false)}
           positive
         />
       </Modal.Actions>
