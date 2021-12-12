@@ -2,9 +2,11 @@ import React from 'react'
 
 import logo from './assets/logo.svg'
 import './styles/app.css'
+import AddItem from './components/AddItem'
 
 const App = () => (
   <div className="App">
+    <AddItem />
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <p>
