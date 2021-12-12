@@ -33,3 +33,19 @@ Code structure & style
   - Guide used to setup our project
       - https://enlear.academy/how-to-set-up-airbnb-style-guide-82413ea6c5f2
       - https://javascript.plainenglish.io/setting-eslint-and-prettier-on-a-react-typescript-project-2021-22993565edf9
+  - Replace Prettier with eslint
+      - https://itnext.io/how-to-replace-prettier-by-eslint-rules-21574359e041
+      - Autoformat eslint 
+          - https://www.digitalocean.com/community/tutorials/linting-and-formatting-with-eslint-in-vs-code
+      - eslint rules 
+          - https://levelup.gitconnected.com/how-to-add-a-custom-eslint-configuration-to-a-create-react-app-project-aea3f7c1d7af
+      - look into https://www.npmjs.com/package/eslint-config-airbnb
+
+Pipeline
+  - Run Husky
+    - https://dev.to/ankitt8/setting-up-eslint-airbnb-configuration-prettier-and-husky-pre-commit-hooks-in-cra-5dbo
+
+
+    TODO: 
+
+    - Downground to 18 for airbnb

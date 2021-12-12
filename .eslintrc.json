@@ -5,11 +5,10 @@
     "jest": true
   },
   "extends": [
+    "react-app",
+    "react-app/jest",
     "airbnb",
-    "plugin:prettier/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended"
+    "airbnb/hooks"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -18,14 +17,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["prettier", "react"],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto"
-      }
-    ],
     "jsx-a11y/href-no-hash": ["off"],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
@@ -58,3 +50,4 @@
     ]
   }
 }
+
