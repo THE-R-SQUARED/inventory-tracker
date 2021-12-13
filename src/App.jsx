@@ -4,11 +4,13 @@ import logo from './assets/logo.svg'
 import './styles/app.css'
 import AddItem from './components/AddItem'
 import SoldItem from './components/SoldItem'
+import ModifyItem from './components/ModifyItem'
 
 const App = () => (
   <div className="App">
     <AddItem />
     <SoldItem />
+    <ModifyItem />
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <p>
