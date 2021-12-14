@@ -16,12 +16,32 @@ const SoldItem = () => {
       <Modal.Content>
         <Form>
           <Form.Group>
-            <Form.Input required label="Sold Where" placeholder="StockX" width={LARGE} />
-            <Form.Input required label="Sell Date" placeholder="08/26/2022" width={MEDIUM} />
-            <Form.Input required label="Sell Price" placeholder="$1000" width={SMALL} />
+            <Form.Input
+              required
+              label="Sold Where"
+              placeholder="StockX"
+              width={LARGE}
+            />
+            <Form.Input
+              required
+              label="Sell Date"
+              placeholder="08/26/2022"
+              width={MEDIUM}
+            />
+            <Form.Input
+              required
+              label="Sell Price"
+              placeholder="$1000"
+              width={SMALL}
+            />
             <Form.Input label="Tax" placeholder="$3.50" width={SMALL} />
             <Form.Input label="Shipping" placeholder="$10" width={SMALL} />
-            <Form.Input required label="Sell Total" placeholder="$950" width={SMALL} />
+            <Form.Input
+              required
+              label="Sell Total"
+              placeholder="$950"
+              width={SMALL}
+            />
           </Form.Group>
         </Form>
       </Modal.Content>
