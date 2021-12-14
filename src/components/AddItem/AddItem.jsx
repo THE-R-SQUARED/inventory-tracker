@@ -7,6 +7,7 @@ import {
   XLARGE,
   ABSOLUTE,
 } from '../../constants/form-styling'
+import '../../styles/modal.css'
 
 const AddItem = () => {
   const [open, isModalOpen] = React.useState(false)
@@ -16,9 +17,13 @@ const AddItem = () => {
       onClose={() => isModalOpen(false)}
       onOpen={() => isModalOpen(true)}
       open={open}
-      trigger={<Button>Add Item</Button>}
+      trigger={
+        <Button inverted color="blue">
+          Add Item
+        </Button>
+      }
     >
-      <Modal.Header>Add Item</Modal.Header>
+      <Modal.Header id="add-item-modal-header">Add Item</Modal.Header>
       <Modal.Content>
         <Form>
           <Form.Group>
@@ -71,9 +76,10 @@ const AddItem = () => {
         <Button
           content="Add to Inventory"
           labelPosition="right"
-          icon="checkmark"
+          icon="plus"
+          inverted
           onClick={() => isModalOpen(false)}
-          positive
+          color="blue"
         />
       </Modal.Actions>
     </Modal>
