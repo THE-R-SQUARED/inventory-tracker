@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix --ext .js,.jsx .",
+    "lint": "eslint --fix --ext .js,.jsx src/",
     "format": "eslint .",
     "prettier:format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
   },
@@ -24,7 +24,7 @@
     "extends": [
       "react-app",
       "react-app/jest",
-      "./.eslintrc.json"
+      ".eslintrc.json"
     ]
   },
   "browserslist": {
