@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Menu, Sidebar, Icon, Container } from 'semantic-ui-react'
+import logo from './assets/logo.svg'
 // import styled from 'styled-components'
 
 import './styles/app.css'
@@ -13,73 +14,97 @@ import './styles/app.css'
 // })
 
 const App = () => (
-  <Grid stretched>
-    <Grid.Row>
-      <Grid.Column>
-        <Sidebar
-          as={Menu}
-          icon="labeled"
-          inverted
-          vertical
-          visible
-          width="thin"
-          direction="left"
-          left
-        >
-          <Menu.Item as="a">
-            <Icon name="home" />
-            Home
-          </Menu.Item>
-          <Menu.Item as="a">
-            <Icon name="gamepad" />
-            Games
-          </Menu.Item>
-          <Menu.Item as="a">
-            <Icon name="camera" />
-            Channels
-          </Menu.Item>
-        </Sidebar>
-        <Sidebar.Pusher>
-          <Container fluid>
-            <Grid stackable>
-              <Grid.Row>
-                <Grid.Column>
-                  <Container> test1</Container>
-                </Grid.Column>
-                <Grid.Column>
-                  <Container> test2</Container>
-                </Grid.Column>
-                <Grid.Column>
-                  <Container> test3</Container>
-                </Grid.Column>
-                <Grid.Column>
-                  <Container> test4</Container>
-                </Grid.Column>
-                <Grid.Column>
-                  <Container> test5</Container>
-                </Grid.Column>
-                <Grid.Column>
-                  <Container> test6</Container>
-                </Grid.Column>
-                <Grid.Column>
-                  <Container> test7</Container>
-                </Grid.Column>
-                <Grid.Column>
-                  <Container> test8</Container>
-                </Grid.Column>
-                <Grid.Column>
-                  <Container> test9</Container>
-                </Grid.Column>
-                <Grid.Column>
-                  <Container> test10</Container>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          </Container>
-        </Sidebar.Pusher>
-      </Grid.Column>
-    </Grid.Row>
-  </Grid>
+  <Container fluid>
+    <Sidebar
+      as={Menu}
+      icon="labeled"
+      inverted
+      vertical
+      visible
+      width="thin"
+      direction="left"
+      left
+      borderless
+    >
+      <Menu.Header>
+        <img
+          src={logo}
+          style={{
+            height: '100px',
+            width: '100px',
+          }}
+          className="App-logo"
+          alt="logo"
+        />
+      </Menu.Header>
+      <Menu.Item as="a">
+        <Icon name="home" />
+        Home
+      </Menu.Item>
+      <Menu.Item as="a">
+        <Icon name="gamepad" />
+        Games
+      </Menu.Item>
+      <Menu.Item as="a">
+        <Icon name="camera" />
+        Channels
+      </Menu.Item>
+    </Sidebar>
+    <Sidebar.Pusher>
+      <Grid stackable>
+        <Grid.Row>
+          <Grid.Column>
+            <Container> test1</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test2</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test3</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test4</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test5</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test6</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test7</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test8</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test9</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test10</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test11</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test12</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test 13</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test 13</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test 13</Container>
+          </Grid.Column>
+          <Grid.Column>
+            <Container> test 16</Container>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Sidebar.Pusher>
+  </Container>
 )
 
 /*
