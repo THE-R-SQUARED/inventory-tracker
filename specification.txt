@@ -49,6 +49,10 @@ Code structure & style
   },
   "eslint.validate": ["javascript"]
 
+
+  - Make sure to disable prettier
+  https://dev.to/gulshansaini/how-to-disable-prettier-in-vscode-for-a-specific-project-2a48
+
 Pipeline
   - Run Husky
     - https://dev.to/ankitt8/setting-up-eslint-airbnb-configuration-prettier-and-husky-pre-commit-hooks-in-cra-5dbo
