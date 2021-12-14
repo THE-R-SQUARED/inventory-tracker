@@ -1,12 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const Container = styled.div({
-  display: 'flex',
-})
+import { Grid } from 'semantic-ui-react'
 
 const InventoryPage = () => {
-  return <Container />
+  return (
+    <Grid padded>
+      <Grid.Row>Dashboard</Grid.Row>
+      <Grid.Row>row 1</Grid.Row>
+      <Grid.Row>row 2</Grid.Row>
+    </Grid>
+  )
 }
 
 export default InventoryPage
