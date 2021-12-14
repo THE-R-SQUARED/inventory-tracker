@@ -1,6 +1,12 @@
 import React from 'react'
 import { Button, Modal, Form } from 'semantic-ui-react'
-import { SMALL, MEDIUM, LARGE, XLARGE, ABSOLUTE } from '../../constants/form-styling'
+import {
+  SMALL,
+  MEDIUM,
+  LARGE,
+  XLARGE,
+  ABSOLUTE,
+} from '../../constants/form-styling'
 
 const ModifyItem = () => {
   const [open, isModalOpen] = React.useState(false)
@@ -28,20 +34,53 @@ const ModifyItem = () => {
             <Form.Input label="SKU" placeholder="555088-105" width={LARGE} />
           </Form.Group>
           <Form.Group>
-            <Form.Input label="Purchased Where" placeholder="Footlocker" width={LARGE} />
-            <Form.Input label="Purchase Date" placeholder="08/25/2022" width={MEDIUM} />
+            <Form.Input
+              label="Purchased Where"
+              placeholder="Footlocker"
+              width={LARGE}
+            />
+            <Form.Input
+              label="Purchase Date"
+              placeholder="08/25/2022"
+              width={MEDIUM}
+            />
             <Form.Input label="Retail Price" placeholder="$180" width={SMALL} />
             <Form.Input label="Tax" placeholder="$3.50" width={SMALL} />
             <Form.Input label="Shipping" placeholder="$10" width={SMALL} />
-            <Form.Input required label="Purchase Total" placeholder="$204" width={SMALL} />
+            <Form.Input
+              required
+              label="Purchase Total"
+              placeholder="$204"
+              width={SMALL}
+            />
           </Form.Group>
           <Form.Group>
-            <Form.Input required label="Sold Where" placeholder="StockX" width={LARGE} />
-            <Form.Input required label="Sell Date" placeholder="08/26/2022" width={MEDIUM} />
-            <Form.Input required label="Sell Price" placeholder="$1000" width={SMALL} />
+            <Form.Input
+              required
+              label="Sold Where"
+              placeholder="StockX"
+              width={LARGE}
+            />
+            <Form.Input
+              required
+              label="Sell Date"
+              placeholder="08/26/2022"
+              width={MEDIUM}
+            />
+            <Form.Input
+              required
+              label="Sell Price"
+              placeholder="$1000"
+              width={SMALL}
+            />
             <Form.Input label="Tax" placeholder="$3.50" width={SMALL} />
             <Form.Input label="Shipping" placeholder="$10" width={SMALL} />
-            <Form.Input required label="Sell Total" placeholder="$950" width={SMALL} />
+            <Form.Input
+              required
+              label="Sell Total"
+              placeholder="$950"
+              width={SMALL}
+            />
           </Form.Group>
           <Form.Group>
             <Form.Input

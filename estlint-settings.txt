@@ -1,0 +1,10 @@
+    "prettier.requireConfig": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+      "javascript"
+    ],
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.renderWhitespace": "all",
+    "editor.formatOnSave": true
