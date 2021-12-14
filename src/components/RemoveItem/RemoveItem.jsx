@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Modal } from 'semantic-ui-react'
+import '../../styles/modal.css'
 
 const RemoveItem = () => {
   const [open, isModalOpen] = React.useState(false)
@@ -9,9 +10,13 @@ const RemoveItem = () => {
       onClose={() => isModalOpen(false)}
       onOpen={() => isModalOpen(true)}
       open={open}
-      trigger={<Button>Remove</Button>}
+      trigger={
+        <Button inverted color="red">
+          Remove
+        </Button>
+      }
     >
-      <Modal.Header>Remove Item</Modal.Header>
+      <Modal.Header id="remove-item-modal-header">Remove Item</Modal.Header>
       <Modal.Content>
         <p>Are you sure you want to remove this item?</p>
       </Modal.Content>

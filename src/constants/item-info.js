@@ -1,6 +1,5 @@
 // Constants related to item form info
-
-export const SIZES = [
+const SIZES = [
   'N/A',
   'OS',
   'XS',
@@ -40,3 +39,5 @@ export const SIZES = [
   '17',
   '18',
 ]
+
+export default SIZES

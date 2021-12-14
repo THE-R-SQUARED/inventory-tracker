@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Modal, Form } from 'semantic-ui-react'
 import { SMALL, MEDIUM, LARGE } from '../../constants/form-styling'
+import '../../styles/modal.css'
 
 const SoldItem = () => {
   const [open, isModalOpen] = React.useState(false)
@@ -10,9 +11,13 @@ const SoldItem = () => {
       onClose={() => isModalOpen(false)}
       onOpen={() => isModalOpen(true)}
       open={open}
-      trigger={<Button>Mark Sold</Button>}
+      trigger={
+        <Button inverted color="green">
+          Mark Sold
+        </Button>
+      }
     >
-      <Modal.Header>Mark Sold</Modal.Header>
+      <Modal.Header id="sold-item-modal-header">Mark Sold</Modal.Header>
       <Modal.Content>
         <Form>
           <Form.Group>

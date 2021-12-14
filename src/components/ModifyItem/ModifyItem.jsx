@@ -7,6 +7,7 @@ import {
   XLARGE,
   ABSOLUTE,
 } from '../../constants/form-styling'
+import '../../styles/modal.css'
 
 const ModifyItem = () => {
   const [open, isModalOpen] = React.useState(false)
@@ -16,10 +17,13 @@ const ModifyItem = () => {
       onClose={() => isModalOpen(false)}
       onOpen={() => isModalOpen(true)}
       open={open}
-      trigger={<Button>Edit</Button>}
-      className="edit-item-modal"
+      trigger={
+        <Button inverted color="yellow">
+          Edit
+        </Button>
+      }
     >
-      <Modal.Header>Edit Item</Modal.Header>
+      <Modal.Header id="modify-item-modal-header">Edit Item</Modal.Header>
       <Modal.Content>
         <Form>
           <Form.Group>

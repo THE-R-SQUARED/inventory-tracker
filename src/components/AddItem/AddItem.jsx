@@ -17,9 +17,13 @@ const AddItem = () => {
       onClose={() => isModalOpen(false)}
       onOpen={() => isModalOpen(true)}
       open={open}
-      trigger={<Button>Add Item</Button>}
+      trigger={
+        <Button inverted color="blue">
+          Add Item
+        </Button>
+      }
     >
-      <Modal.Header>Add Item</Modal.Header>
+      <Modal.Header id="add-item-modal-header">Add Item</Modal.Header>
       <Modal.Content>
         <Form>
           <Form.Group>
