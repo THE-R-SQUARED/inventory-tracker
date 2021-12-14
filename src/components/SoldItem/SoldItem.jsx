@@ -1,38 +1,39 @@
 import React from 'react'
 import { Button, Modal, Form } from 'semantic-ui-react'
+import { SMALL, MEDIUM, LARGE } from '../../constants/form-styling'
 
 const SoldItem = () => {
-  const [open, setOpen] = React.useState(false)
+  const [open, isModalOpen] = React.useState(false)
 
   return (
     <Modal
-      onClose={() => setOpen(false)}
-      onOpen={() => setOpen(true)}
+      onClose={() => isModalOpen(false)}
+      onOpen={() => isModalOpen(true)}
       open={open}
-      trigger={<Button>Add Item</Button>}
+      trigger={<Button>Mark Sold</Button>}
     >
-      <Modal.Header>Add Item</Modal.Header>
+      <Modal.Header>Mark Sold</Modal.Header>
       <Modal.Content>
         <Form>
           <Form.Group>
-            <Form.Input label="Sold Where" placeholder="StockX" width={4} />
-            <Form.Input label="Sell Date" placeholder="08/26/2022" width={3} />
-            <Form.Input label="Sell Price" placeholder="$1000" width={2} />
-            <Form.Input label="Tax" placeholder="$3.50" width={2} />
-            <Form.Input label="Shipping" placeholder="$10" width={2} />
-            <Form.Input label="Sell Total" placeholder="$950" width={2} />
+            <Form.Input required label="Sold Where" placeholder="StockX" width={LARGE} />
+            <Form.Input required label="Sell Date" placeholder="08/26/2022" width={MEDIUM} />
+            <Form.Input required label="Sell Price" placeholder="$1000" width={SMALL} />
+            <Form.Input label="Tax" placeholder="$3.50" width={SMALL} />
+            <Form.Input label="Shipping" placeholder="$10" width={SMALL} />
+            <Form.Input required label="Sell Total" placeholder="$950" width={SMALL} />
           </Form.Group>
         </Form>
       </Modal.Content>
       <Modal.Actions>
-        <Button color="black" onClick={() => setOpen(false)}>
+        <Button color="black" onClick={() => isModalOpen(false)}>
           Cancel
         </Button>
         <Button
           content="Mark as Sold"
           labelPosition="right"
           icon="checkmark"
-          onClick={() => setOpen(false)}
+          onClick={() => isModalOpen(false)}
           positive
         />
       </Modal.Actions>
