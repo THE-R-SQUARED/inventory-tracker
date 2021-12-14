@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const ExampleLayout = () => <div>testing layout</div>;
+const ExampleLayout = () => <div>testing layout</div>
 
-export default ExampleLayout;
+export default ExampleLayout

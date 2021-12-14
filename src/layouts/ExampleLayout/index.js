@@ -1,3 +1,3 @@
-import ExampleLayout from './ExampleLayout';
+import ExampleLayout from './ExampleLayout'
 
-export default ExampleLayout;
+export default ExampleLayout

@@ -10,7 +10,7 @@
     "airbnb/hooks",
     "plugin:prettier/recommended"
   ],
-  "plugins": [ "import"],
+  "plugins": ["import"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -20,13 +20,9 @@
   },
   "rules": {
     "prettier/prettier": "error",
-    "quotes": ["error", "single"],
-    "jsx-a11y/href-no-hash": ["off"],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-filename-extension": [2, { "extensions": [".jsx"] }],
-    "react/jsx-indent-props": [2, 2],
-    "react/jsx-indent": [2, 2],
     "react/jsx-one-expression-per-line": [0],
     "react/prefer-stateless-function": [1],
     "react/static-property-placement": [1, "property assignment"],
@@ -53,4 +49,3 @@
     ]
   }
 }
-
