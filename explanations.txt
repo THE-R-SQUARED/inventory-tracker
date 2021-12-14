@@ -1,0 +1,3 @@
+eslint vs prettier
+
+eslint is used to enforce code quality rather than formatting. Prettier will be the tool that will enforce our code formatting.

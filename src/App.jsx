@@ -6,11 +6,7 @@ import './styles/app.css';
 const App = () => (
   <div className="App">
     <header className="App-header">
-      <img
-        src={logo}
-        className="App-logo"
-        alt="logo"
-      />
+      <img src={logo} className="App-logo" alt="logo" />
       <p>
         Edit
         <code>src/App.js</code>

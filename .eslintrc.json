@@ -6,11 +6,11 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
     "airbnb",
-    "airbnb/hooks"
+    "airbnb/hooks",
+    "plugin:prettier/recommended"
   ],
-  "plugins": [ "import", "react" ],
+  "plugins": [ "import"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -19,6 +19,8 @@
     "sourceType": "module"
   },
   "rules": {
+    "prettier/prettier": "error",
+    "quotes": ["error", "single"],
     "jsx-a11y/href-no-hash": ["off"],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",

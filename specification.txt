@@ -61,6 +61,7 @@ Pipeline
 eslint
   - https://levelup.gitconnected.com/how-to-add-a-custom-eslint-configuration-to-a-create-react-app-project-aea3f7c1d7af
   - https://www.npmjs.com/package/eslint-plugin-import
+  - https://www.sentinelstand.com/article/formatting-and-linting-with-eslint-and-prettier
 
 
     TODO: 
