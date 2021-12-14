@@ -1,35 +1,42 @@
 import React from 'react'
+import { Grid, Sidebar, Menu, Icon, Segment } from 'semantic-ui-react'
 
-import logo from './assets/logo.svg'
 import './styles/app.css'
-import AddItem from './components/AddItem'
-import SoldItem from './components/SoldItem'
-import ModifyItem from './components/ModifyItem'
-import RemoveItem from './components/RemoveItem'
+import SIDEBAR_STYLE from './styles/side-bar'
 
 const App = () => (
-  <div className="App">
-    <AddItem />
-    <SoldItem />
-    <ModifyItem />
-    <RemoveItem />
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit
-        <code>src/App.js</code>
-        and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+  <Sidebar.Pushable as={Segment} style={SIDEBAR_STYLE}>
+    <Sidebar
+      as={Menu}
+      animation="Uncover"
+      icon="labeled"
+      inverted
+      vertical
+      visible
+      width="thin"
+    >
+      <Menu.Item as="a">
+        <Icon name="home" />
+        Home
+      </Menu.Item>
+      <Menu.Item as="a">
+        <Icon name="book" />
+        Inventory
+      </Menu.Item>
+      <Menu.Item as="a">
+        <Icon name="dollar sign" />
+        Sales
+      </Menu.Item>
+    </Sidebar>
+
+    <Sidebar.Pusher>
+      <Grid padded>
+        <Grid.Row>Dashboard</Grid.Row>
+        <Grid.Row>row 1</Grid.Row>
+        <Grid.Row>row 2</Grid.Row>
+      </Grid>
+    </Sidebar.Pusher>
+  </Sidebar.Pushable>
 )
 
 export default App
