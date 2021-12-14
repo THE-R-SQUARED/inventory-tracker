@@ -104,7 +104,7 @@ const ModifyItem = () => {
         <Button
           content="Edit"
           labelPosition="right"
-          icon="pencil"
+          icon="edit"
           inverted
           onClick={() => isModalOpen(false)}
           color="yellow"
