@@ -19,7 +19,12 @@ const RemoveItem = () => {
         <Button color="black" onClick={() => isModalOpen(false)}>
           No, do not remove
         </Button>
-        <Button content="Yes, remove" inverted onClick={() => isModalOpen(false)} color="red" />
+        <Button
+          content="Yes, remove"
+          inverted
+          onClick={() => isModalOpen(false)}
+          color="red"
+        />
       </Modal.Actions>
     </Modal>
   )
