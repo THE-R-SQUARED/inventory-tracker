@@ -52,9 +52,10 @@ const AddItem = () => {
         <Button
           content="Add to Inventory"
           labelPosition="right"
-          icon="checkmark"
+          icon="plus"
+          inverted
           onClick={() => isModalOpen(false)}
-          positive
+          color="blue"
         />
       </Modal.Actions>
     </Modal>

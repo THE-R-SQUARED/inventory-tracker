@@ -33,8 +33,9 @@ const SoldItem = () => {
           content="Mark as Sold"
           labelPosition="right"
           icon="checkmark"
+          inverted
           onClick={() => isModalOpen(false)}
-          positive
+          color="green"
         />
       </Modal.Actions>
     </Modal>
