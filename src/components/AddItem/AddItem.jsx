@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Modal, Form } from 'semantic-ui-react'
 import { SMALL, MEDIUM, LARGE, XLARGE, ABSOLUTE } from '../../constants/form-styling'
+import '../../styles/modal.css'
 
 const AddItem = () => {
   const [open, isModalOpen] = React.useState(false)
