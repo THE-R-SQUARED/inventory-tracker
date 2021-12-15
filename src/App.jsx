@@ -15,6 +15,7 @@ const PageContainer = styled.div({
 const ContentContainer = styled.div({
   width: '100%',
   textAlign: 'right',
+  height: '100%',
 })
 
 const App = () => (
@@ -22,7 +23,9 @@ const App = () => (
     <SideBar />
     <ContentContainer>
       <MenuBar />
-      <Container>rest of page</Container>
+      <Container fluid textAlign="center">
+        rest of page
+      </Container>
     </ContentContainer>
   </PageContainer>
 )
