@@ -3,10 +3,6 @@ import React from 'react'
 import logo from './assets/logo.svg'
 import './styles/app.css'
 import InventoryModal from './components/InventoryModal'
-// import AddItem from './components/AddItem'
-// import SoldItem from './components/SoldItem'
-// import ModifyItem from './components/ModifyItem'
-// import RemoveItem from './components/RemoveItem'
 
 const App = () => (
   <div className="App">
