@@ -1,12 +1,30 @@
 import React from 'react'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Header } from 'semantic-ui-react'
+import UserProfile from '../../components/UserProfile'
 
 const MenuBar = () => (
-  <Grid>
-    <Grid.Column floated="right">icon</Grid.Column>
-    <Grid.Column floated="right">avatar</Grid.Column>
-    <Grid.Column floated="right">username</Grid.Column>
+  // <Container fluid>
+  <Grid columns={2} stackable>
+    <Grid.Row>
+      <Grid.Column textAlign="left">
+        <Header>Dashboard</Header>
+      </Grid.Column>
+      <Grid.Column textAlign="right">
+        <UserProfile />
+      </Grid.Column>
+    </Grid.Row>
   </Grid>
 )
 
 export default MenuBar
+
+/*
+  <Grid>
+    <Grid.Row>
+      <Grid.Column>Dashboard</Grid.Column>
+      <Grid.Column>
+        <UserProfile />
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
+*/
