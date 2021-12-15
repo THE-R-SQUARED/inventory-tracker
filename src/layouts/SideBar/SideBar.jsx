@@ -1,51 +1,89 @@
-import React from 'react'
-import { Menu, Container } from 'semantic-ui-react'
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { Menu, Icon } from 'semantic-ui-react'
+
+import logo from '../../assets/logo.svg'
+
+const Logo = styled.img({
+  height: '100px',
+  width: '100px',
+})
+
+const Link = styled.a({
+  color: 'white !important',
+  marginTop: '15px',
+})
+
+const SideBarContainer = styled.div({
+  width: '170px',
+})
+
+const SideBarMenu = styled(Menu)({
+  height: '100%',
+  borderRadius: '0 !important',
+})
+
+const SideBarMenuItemContainer = styled(Menu.Menu)({
+  marginTop: '50px !important',
+})
+
+const SideBarMenuItem = styled(Menu.Item)({
+  padding: '20px',
+})
 
 const SideBar = () => {
-  // const [activeItem, setActiveItem] = useState(null)
+  const [activeItem, setActiveItem] = useState(null)
 
-  // const handleItemClick = () => setActiveItem('clicked')
+  const handleOnClick = () => setActiveItem('clicked')
 
   return (
-    <Menu pointing secondary>
-      <Container>
-        <Menu.Item name="Landing" />
-        <Menu.Item name="home" />
-        <Menu.Item name="Account" />
-      </Container>
-    </Menu>
+    <SideBarContainer>
+      <SideBarMenu
+        icon="labeled"
+        vertical
+        borderless
+        size="large"
+        fluid
+        inverted
+      >
+        <Menu.Header>
+          <Logo src={logo} className="App-logo" alt="logo" />
+        </Menu.Header>
+        <SideBarMenuItemContainer>
+          <SideBarMenuItem
+            className="item"
+            name="home"
+            as={Link}
+            active={activeItem === 'home'}
+            onClick={handleOnClick}
+          >
+            <Icon name="home" />
+            Home
+          </SideBarMenuItem>
+          <SideBarMenuItem
+            className="item"
+            name="inventory"
+            as={Link}
+            active={activeItem === 'inventory'}
+            onClick={handleOnClick}
+          >
+            <Icon name="book" />
+            Inventory
+          </SideBarMenuItem>
+          <SideBarMenuItem
+            className="item"
+            name="sales"
+            as={Link}
+            active={activeItem === 'sales'}
+            onClick={handleOnClick}
+          >
+            <Icon name="dollar sign" />
+            Sales
+          </SideBarMenuItem>
+        </SideBarMenuItemContainer>
+      </SideBarMenu>
+    </SideBarContainer>
   )
 }
 
 export default SideBar
-
-/*
-    <Menu icon="labeled" vertical borderless size="small">
-      <Menu.Item
-        name="gamepad"
-        active={activeItem === 'gamepad'}
-        onClick={handleItemClick}
-      >
-        <Icon name="gamepad" />
-        Games
-      </Menu.Item>
-
-      <Menu.Item
-        name="video camera"
-        active={activeItem === 'video camera'}
-        onClick={handleItemClick}
-      >
-        <Icon name="video camera" />
-        Channels
-      </Menu.Item>
-
-      <Menu.Item
-        name="video play"
-        active={activeItem === 'video play'}
-        onClick={handleItemClick}
-      >
-        <Icon name="video play" />
-        Videos
-      </Menu.Item>
-    </Menu>
-*/
