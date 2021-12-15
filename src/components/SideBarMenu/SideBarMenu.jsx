@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Menu, Icon } from 'semantic-ui-react'
 
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/project-logo.png'
 
 const SideBarMenuContainer = styled(Menu)({
   height: '100%',
@@ -18,8 +18,9 @@ const SideBarMenuItemContainer = styled(Menu.Menu)({
 })
 
 const Logo = styled.img({
-  height: '100px',
-  width: '100px',
+  height: '90px',
+  width: '90px',
+  marginTop: '20px',
 })
 
 const Link = styled.a({
@@ -37,7 +38,7 @@ const SideBarMenu = () => {
       icon="labeled"
       vertical
       borderless
-      size="large"
+      size="massive"
       fluid
       inverted
     >
