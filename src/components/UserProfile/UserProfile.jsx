@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Icon, Popup } from 'semantic-ui-react'
 
 import AvatarPicture from '../../assets/avatar-picture.jpeg'
 
@@ -24,13 +25,22 @@ const Avatar = styled.img({
 })
 
 const UserProfile = () => {
+  // We are going to need this state for the toggle below
+  // const [isOpen, setOpen] = useState(false)
+
   return (
     <UserProfileContainer>
       <UserProfileItem>
         <Avatar src={AvatarPicture} alt="avatar-picture" />
       </UserProfileItem>
       <UserProfileItem>Richmond</UserProfileItem>
-      <UserProfileItem>toggable</UserProfileItem>
+      <UserProfileItem>
+        <Popup
+          trigger={<Icon name="angle down" />}
+          content="Have this as a settings icon??? Also, when we click this maybe a user settings modal can open???"
+          basic
+        />
+      </UserProfileItem>
     </UserProfileContainer>
   )
 }

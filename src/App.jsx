@@ -24,7 +24,7 @@ const App = () => (
     <ContentContainer>
       <MenuBar />
       <Container fluid textAlign="center">
-        rest of page
+        {` pages go here (like the inventory, sales and home page)`}
       </Container>
     </ContentContainer>
   </PageContainer>
