@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Checkbox } from 'semantic-ui-react'
 import InventoryModal from '../InventoryModal'
 import {
   SMALL,
@@ -50,6 +50,48 @@ const AddItem = () => {
             label="Purchase Total"
             placeholder="$204"
             width={SMALL}
+          />
+        </Form.Group>
+        <br />
+        <div>
+          <Checkbox label="Item Already Sold?" />
+        </div>
+        <br />
+        <Form.Group>
+          <Form.Input
+            required
+            label="Sold Where"
+            placeholder="StockX"
+            width={LARGE}
+            disabled
+          />
+          <Form.Input
+            required
+            label="Sell Date"
+            placeholder="08/26/2022"
+            width={MEDIUM}
+            disabled
+          />
+          <Form.Input
+            required
+            label="Sell Price"
+            placeholder="$1000"
+            width={SMALL}
+            disabled
+          />
+          <Form.Input label="Tax" placeholder="$3.50" width={SMALL} disabled />
+          <Form.Input
+            label="Shipping"
+            placeholder="$10"
+            width={SMALL}
+            disabled
+          />
+          <Form.Input
+            required
+            label="Sell Total"
+            placeholder="$950"
+            width={SMALL}
+            disabled
           />
         </Form.Group>
         <Form.Group>
