@@ -1,0 +1,19 @@
+#add-item-modal-header {
+  background-color: #3ac0ff !important;
+  color: white !important;
+}
+
+#sold-item-modal-header {
+  background-color: #22be34 !important;
+  color: white !important;
+}
+
+#modify-item-modal-header {
+  background-color: #ffdf05 !important;
+  color: #796a02 !important;
+}
+
+#remove-item-modal-header {
+  background-color: #ff5144 !important;
+  color: white !important;
+}
