@@ -4,6 +4,10 @@ import styled from 'styled-components'
 
 import './styles/app.css'
 
+import AddItem from './components/AddItem'
+import ModifyItem from './components/ModifyItem'
+import RemoveItem from './components/RemoveItem'
+import SoldItem from './components/SoldItem'
 import SideBar from './layouts/SideBar'
 import MenuBar from './layouts/MenuBar'
 
@@ -25,6 +29,10 @@ const App = () => (
       <MenuBar />
       <Container fluid textAlign="center">
         {` pages go here (like the inventory, sales and home page)`}
+        <AddItem />
+        <ModifyItem />
+        <RemoveItem />
+        <SoldItem />
       </Container>
     </ContentContainer>
   </PageContainer>
