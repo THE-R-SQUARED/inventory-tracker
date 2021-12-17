@@ -4,12 +4,12 @@ import styled from 'styled-components'
 
 import './styles/app.css'
 
-import SideBar from './layouts/SideBar'
-import MenuBar from './layouts/MenuBar'
 import AddItem from './components/AddItem'
-import SoldItem from './components/SoldItem'
 import ModifyItem from './components/ModifyItem'
 import RemoveItem from './components/RemoveItem'
+import SoldItem from './components/SoldItem'
+import SideBar from './layouts/SideBar'
+import MenuBar from './layouts/MenuBar'
 
 const PageContainer = styled.div({
   display: 'flex',
@@ -30,9 +30,9 @@ const App = () => (
       <Container fluid textAlign="center">
         {` pages go here (like the inventory, sales and home page)`}
         <AddItem />
-        <SoldItem />
         <ModifyItem />
         <RemoveItem />
+        <SoldItem />
       </Container>
     </ContentContainer>
   </PageContainer>
