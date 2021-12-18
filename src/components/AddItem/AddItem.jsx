@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-
-import { Form, Checkbox } from 'semantic-ui-react'
+import { Form, Checkbox, Label, Dropdown } from 'semantic-ui-react'
 import InventoryModal from '../InventoryModal'
 import {
   SMALL,
@@ -9,6 +8,8 @@ import {
   XLARGE,
   ABSOLUTE,
 } from '../../constants/form-styling'
+import '../../styles/modal.css'
+import SIZES from '../../constants/item-info'
 
 const AddItem = () => {
   const [disabled, toggleDisabledOnSoldFields] = useState(true)
@@ -23,6 +24,12 @@ const AddItem = () => {
     soldShipping = '',
     soldTotal = '',
   } = formFields
+
+  const sizeOptions = SIZES.map((size) => ({
+    key: size,
+    text: size,
+    value: size,
+  }))
 
   // // name, value
   const handleChange = (e, { name, value }) => {
@@ -54,11 +61,19 @@ const AddItem = () => {
         <Form.Group>
           <Form.Input
             required
-            label="vendor"
+            label="Name"
             placeholder="Air Jordan 1 High Mocha"
             width={XLARGE}
           />
-          <Form.Input required label="Size" placeholder="10" width={SMALL} />
+          <Form.Input label="Size" width={SMALL}>
+            <Dropdown
+              fluid
+              placeholder="Size"
+              search
+              selection
+              options={sizeOptions}
+            />
+          </Form.Input>
           <Form.Input label="Color" placeholder="Brown" width={MEDIUM} />
           <Form.Input label="SKU" placeholder="555088-105" width={LARGE} />
         </Form.Group>
@@ -73,15 +88,47 @@ const AddItem = () => {
             placeholder="08/25/2022"
             width={MEDIUM}
           />
-          <Form.Input label="Retail Price" placeholder="$180" width={SMALL} />
-          <Form.Input label="Tax" placeholder="$3.50" width={SMALL} />
-          <Form.Input label="Shipping" placeholder="$10" width={SMALL} />
+          <Form.Input
+            label="Retail Price"
+            placeholder="180"
+            type="number"
+            labelPosition="left"
+            width={SMALL}
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
+          <Form.Input
+            label="Tax"
+            placeholder="3.50"
+            type="number"
+            labelPosition="left"
+            width={SMALL}
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
+          <Form.Input
+            label="Shipping"
+            placeholder="10"
+            type="number"
+            labelPosition="left"
+            width={SMALL}
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
           <Form.Input
             required
             label="Purchase Total"
-            placeholder="$204"
+            placeholder="204"
+            type="number"
+            labelPosition="left"
             width={SMALL}
-          />
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
         </Form.Group>
         <br />
         <div>
@@ -97,7 +144,6 @@ const AddItem = () => {
         <Form.Group>
           {/* <Message header={JSON.stringify(formFields)} /> */}
           <Form.Input
-            required
             label="Sold Where"
             placeholder="StockX"
             width={LARGE}
@@ -107,7 +153,6 @@ const AddItem = () => {
             onChange={handleChange}
           />
           <Form.Input
-            required
             label="Sell Date"
             placeholder="08/26/2022"
             width={MEDIUM}
@@ -117,43 +162,62 @@ const AddItem = () => {
             onChange={handleChange}
           />
           <Form.Input
-            required
             label="Sell Price"
-            placeholder="$1000"
+            placeholder="1000"
+            type="number"
             width={SMALL}
             disabled={disabled}
             name="soldPrice"
             value={soldPrice}
             onChange={handleChange}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
           <Form.Input
             label="Tax"
-            placeholder="$3.50"
+            placeholder="3.50"
+            type="number"
             width={SMALL}
             disabled={disabled}
             name="soldTax"
             value={soldTax}
             onChange={handleChange}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
           <Form.Input
             label="Shipping"
-            placeholder="$10"
+            placeholder="10"
+            type="number"
             width={SMALL}
             disabled={disabled}
             name="soldShipping"
             value={soldShipping}
             onChange={handleChange}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
           <Form.Input
             required
             label="Sell Total"
-            placeholder="$950"
+            placeholder="950"
+            type="number"
             width={SMALL}
             disabled={disabled}
             name="soldTotal"
             value={soldTotal}
             onChange={handleChange}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
         </Form.Group>
         <Form.Group>
           <Form.Input
