@@ -42,13 +42,29 @@ const ModifyItem = () => {
             placeholder="08/25/2022"
             width={MEDIUM}
           />
-          <Form.Input label="Retail Price" placeholder="$180" width={SMALL} />
-          <Form.Input label="Tax" placeholder="$3.50" width={SMALL} />
-          <Form.Input label="Shipping" placeholder="$10" width={SMALL} />
+          <Form.Input
+            label="Retail Price"
+            placeholder="$180"
+            type="number"
+            width={SMALL}
+          />
+          <Form.Input
+            label="Tax"
+            placeholder="$3.50"
+            type="number"
+            width={SMALL}
+          />
+          <Form.Input
+            label="Shipping"
+            placeholder="$10"
+            type="number"
+            width={SMALL}
+          />
           <Form.Input
             required
             label="Purchase Total"
             placeholder="$204"
+            type="number"
             width={SMALL}
           />
         </Form.Group>
@@ -69,14 +85,26 @@ const ModifyItem = () => {
             required
             label="Sell Price"
             placeholder="$1000"
+            type="number"
             width={SMALL}
           />
-          <Form.Input label="Tax" placeholder="$3.50" width={SMALL} />
-          <Form.Input label="Shipping" placeholder="$10" width={SMALL} />
+          <Form.Input
+            label="Tax"
+            placeholder="$3.50"
+            type="number"
+            width={SMALL}
+          />
+          <Form.Input
+            label="Shipping"
+            placeholder="$10"
+            type="number"
+            width={SMALL}
+          />
           <Form.Input
             required
             label="Sell Total"
             placeholder="$950"
+            type="number"
             width={SMALL}
           />
         </Form.Group>

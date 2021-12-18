@@ -17,3 +17,9 @@
   background-color: #ff5144 !important;
   color: white !important;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
