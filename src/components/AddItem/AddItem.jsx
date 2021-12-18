@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-
-import { Form, Checkbox, Label } from 'semantic-ui-react'
+import { Form, Checkbox, Label, Dropdown } from 'semantic-ui-react'
 import InventoryModal from '../InventoryModal'
 import {
   SMALL,
@@ -10,6 +9,7 @@ import {
   ABSOLUTE,
 } from '../../constants/form-styling'
 import '../../styles/modal.css'
+import SIZES from '../../constants/item-info'
 
 const AddItem = () => {
   const [disabled, toggleDisabledOnSoldFields] = useState(true)
@@ -24,6 +24,12 @@ const AddItem = () => {
     soldShipping = '',
     soldTotal = '',
   } = formFields
+
+  const sizeOptions = SIZES.map((size) => ({
+    key: size,
+    text: size,
+    value: size,
+  }))
 
   // // name, value
   const handleChange = (e, { name, value }) => {
@@ -59,7 +65,15 @@ const AddItem = () => {
             placeholder="Air Jordan 1 High Mocha"
             width={XLARGE}
           />
-          <Form.Input required label="Size" placeholder="10" width={SMALL} />
+          <Form.Input label="Size" width={SMALL}>
+            <Dropdown
+              fluid
+              placeholder="Size"
+              search
+              selection
+              options={sizeOptions}
+            />
+          </Form.Input>
           <Form.Input label="Color" placeholder="Brown" width={MEDIUM} />
           <Form.Input label="SKU" placeholder="555088-105" width={LARGE} />
         </Form.Group>

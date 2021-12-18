@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Label } from 'semantic-ui-react'
+import { Form, Label, Dropdown } from 'semantic-ui-react'
 import InventoryModal from '../InventoryModal'
 import {
   SMALL,
@@ -8,6 +8,13 @@ import {
   XLARGE,
   ABSOLUTE,
 } from '../../constants/form-styling'
+import SIZES from '../../constants/item-info'
+
+const sizeOptions = SIZES.map((size) => ({
+  key: size,
+  text: size,
+  value: size,
+}))
 
 const ModifyItem = () => {
   return (
@@ -27,7 +34,15 @@ const ModifyItem = () => {
             placeholder="Air Jordan 1 High Mocha"
             width={XLARGE}
           />
-          <Form.Input required label="Size" placeholder="10" width={SMALL} />
+          <Form.Input label="Size" width={SMALL}>
+            <Dropdown
+              fluid
+              placeholder="Size"
+              search
+              selection
+              options={sizeOptions}
+            />
+          </Form.Input>
           <Form.Input label="Color" placeholder="Brown" width={MEDIUM} />
           <Form.Input label="SKU" placeholder="555088-105" width={LARGE} />
         </Form.Group>
