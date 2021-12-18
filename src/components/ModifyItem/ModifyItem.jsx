@@ -100,20 +100,13 @@ const ModifyItem = () => {
           </Form.Input>
         </Form.Group>
         <Form.Group>
+          <Form.Input label="Sold Where" placeholder="StockX" width={LARGE} />
           <Form.Input
-            required
-            label="Sold Where"
-            placeholder="StockX"
-            width={LARGE}
-          />
-          <Form.Input
-            required
             label="Sell Date"
             placeholder="08/26/2022"
             width={MEDIUM}
           />
           <Form.Input
-            required
             label="Sell Price"
             placeholder="1000"
             type="number"

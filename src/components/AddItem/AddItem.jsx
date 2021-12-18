@@ -144,7 +144,6 @@ const AddItem = () => {
         <Form.Group>
           {/* <Message header={JSON.stringify(formFields)} /> */}
           <Form.Input
-            required
             label="Sold Where"
             placeholder="StockX"
             width={LARGE}
@@ -154,7 +153,6 @@ const AddItem = () => {
             onChange={handleChange}
           />
           <Form.Input
-            required
             label="Sell Date"
             placeholder="08/26/2022"
             width={MEDIUM}
@@ -164,7 +162,6 @@ const AddItem = () => {
             onChange={handleChange}
           />
           <Form.Input
-            required
             label="Sell Price"
             placeholder="1000"
             type="number"
