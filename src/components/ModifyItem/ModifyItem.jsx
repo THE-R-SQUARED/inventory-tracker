@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Label } from 'semantic-ui-react'
 import InventoryModal from '../InventoryModal'
 import {
   SMALL,
@@ -44,29 +44,45 @@ const ModifyItem = () => {
           />
           <Form.Input
             label="Retail Price"
-            placeholder="$180"
+            placeholder="180"
             type="number"
             width={SMALL}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
           <Form.Input
             label="Tax"
-            placeholder="$3.50"
+            placeholder="3.50"
             type="number"
             width={SMALL}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
           <Form.Input
             label="Shipping"
-            placeholder="$10"
+            placeholder="10"
             type="number"
             width={SMALL}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
           <Form.Input
             required
             label="Purchase Total"
-            placeholder="$204"
+            placeholder="204"
             type="number"
             width={SMALL}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
         </Form.Group>
         <Form.Group>
           <Form.Input
@@ -84,29 +100,45 @@ const ModifyItem = () => {
           <Form.Input
             required
             label="Sell Price"
-            placeholder="$1000"
+            placeholder="1000"
             type="number"
             width={SMALL}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
           <Form.Input
             label="Tax"
-            placeholder="$3.50"
+            placeholder="3.50"
             type="number"
             width={SMALL}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
           <Form.Input
             label="Shipping"
-            placeholder="$10"
+            placeholder="10"
             type="number"
             width={SMALL}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
           <Form.Input
             required
             label="Sell Total"
-            placeholder="$950"
+            placeholder="950"
             type="number"
             width={SMALL}
-          />
+            labelPosition="left"
+          >
+            <Label basic>$</Label>
+            <input />
+          </Form.Input>
         </Form.Group>
         <Form.Group>
           <Form.Input
