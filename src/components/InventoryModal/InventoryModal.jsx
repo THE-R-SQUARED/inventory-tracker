@@ -1,9 +1,5 @@
 import React from 'react'
 import { Button, Modal, ModalContent } from 'semantic-ui-react'
-// import AddItem from '../AddItem'
-// import SoldItem from '../SoldItem'
-// import ModifyItem from '../ModifyItem'
-// import RemoveItem from '../RemoveItem'
 import '../../styles/modal.css'
 
 const InventoryModal = ({
