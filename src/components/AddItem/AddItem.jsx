@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Checkbox, Label, Dropdown } from 'semantic-ui-react'
+import DatePicker from 'react-datepicker'
 import InventoryModal from '../InventoryModal'
 import {
   SMALL,
@@ -9,12 +10,14 @@ import {
   ABSOLUTE,
 } from '../../constants/form-styling'
 import '../../styles/modal.css'
+import 'react-datepicker/dist/react-datepicker.css'
 import SIZES from '../../constants/item-info'
 
 const AddItem = () => {
   const [disabled, toggleDisabledOnSoldFields] = useState(true)
-
   const [formFields, setFormFields] = useState({})
+  const [dpPurchaseDate, setPurchaseDate] = useState('')
+  const [dpSoldDate, setSoldDate] = useState('')
 
   const {
     soldWhere = '',
@@ -31,9 +34,7 @@ const AddItem = () => {
     value: size,
   }))
 
-  // // name, value
   const handleChange = (e, { name, value }) => {
-    // console.log({ name, value })
     setFormFields((prevFormFields) => ({
       ...prevFormFields,
       [name]: value,
@@ -83,11 +84,16 @@ const AddItem = () => {
             placeholder="Footlocker"
             width={LARGE}
           />
-          <Form.Input
-            label="Purchase Date"
-            placeholder="08/25/2022"
-            width={MEDIUM}
-          />
+          <Form.Input label="Purchase Date" fluid>
+            <DatePicker
+              selected={dpPurchaseDate}
+              onChange={(date) => setPurchaseDate(date)}
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
+            />
+          </Form.Input>
           <Form.Input
             label="Retail Price"
             placeholder="180"
@@ -152,7 +158,7 @@ const AddItem = () => {
             value={soldWhere}
             onChange={handleChange}
           />
-          <Form.Input
+          {/* <Form.Input
             label="Sell Date"
             placeholder="08/26/2022"
             width={MEDIUM}
@@ -160,7 +166,23 @@ const AddItem = () => {
             name="soldDate"
             value={soldDate}
             onChange={handleChange}
-          />
+          /> */}
+          <Form.Input
+            label="Sell Date"
+            fluid
+            disabled={disabled}
+            name="soldDate"
+            value={soldDate}
+          >
+            <DatePicker
+              selected={dpSoldDate}
+              onChange={(date) => setSoldDate(date)}
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
+            />
+          </Form.Input>
           <Form.Input
             label="Sell Price"
             placeholder="1000"
