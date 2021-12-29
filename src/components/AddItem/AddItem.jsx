@@ -28,7 +28,6 @@ const AddItem = ({ onSubmit }) => {
     value: size,
   }))
 
-  // Refactored for clear state change
   const handleClear = () => {
     toggleDisabledOnSoldFields((wasDisabled) => {
       // If it was not diabled, this means that we want to go through
@@ -74,41 +73,28 @@ const AddItem = ({ onSubmit }) => {
   }
 
   const handleFormInput = (e, { name, value }) => {
-    // Step 1 Find element
-
     setFormFields((prevFormFields) => {
-      // Go through each item in the formField state and check if there is a
-      // match.
-      // If match, returns the matched item reference.
-      // if not matched returns null.
-      // const foundItem = prevFormFields.find((element) => element.name === name)
       const { fields } = prevFormFields
       // No duplicates
       const newFields = fields.filter((element) => element.name !== name)
 
-      // If foundItem is not null, that means we have found the item
-      // and able to update it
-      // directly since we already have a reference to it. Therefore
-      // by copying over the values
-      // in 170 it is also able to copy the changed referenced object.
-      // if (foundItem) {
-      //   foundItem.value = value
-      //   //return [...formFields]
-      //   return { ...formFields, fields: [...formFields.fields] }
-      // }
-
-      // return [...formFields, { name, value, isDisabled }]
       return {
         ...prevFormFields,
         fields: [...newFields, { name, value }],
       }
     })
-
-    console.log(formFields, formFields.length)
   }
 
   const addDateField = (dateType, dateValue) => {
     setFormFields((prevFormFields) => {
+      if (dateType === 'itemPurchaseDate') {
+        const { fields } = prevFormFields
+        const newFields = fields.filter((element) => element.name !== dateType)
+        return {
+          ...prevFormFields,
+          fields: [...newFields, { name: dateType, dateValue }],
+        }
+      }
       const { togglableFields } = prevFormFields
       const newFields = togglableFields.filter(
         (element) => element.name !== dateType
@@ -327,13 +313,14 @@ const AddItem = ({ onSubmit }) => {
           </Form.Input>
         </Form.Group>
         <Form.Group>
-          <Form.Input
+          <Form.TextArea
             label="Notes"
             placeholder="Sold to John Smith at Kobey's Swapmeet"
-            control="textarea"
             rows="3"
             width={ABSOLUTE}
+            disabled={false}
             name="notes"
+            onChange={handleFormInput}
           />
         </Form.Group>
       </Form>
