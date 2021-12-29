@@ -10,13 +10,28 @@ const InventoryModal = ({
   modalIcon,
   modalActionButtonText,
   modalCSS,
+  onModalSubmit,
 }) => {
   const [open, isModalOpen] = React.useState(false)
 
+  const handleOpen = () => {
+    isModalOpen(true)
+  }
+
+  const handleClose = () => {
+    isModalOpen(false)
+  }
+
+  const handleSubmit = () => {
+    console.log('calling handleSubit in InventoryModal')
+    handleClose()
+    onModalSubmit()
+  }
+
   return (
     <Modal
-      onClose={() => isModalOpen(false)}
-      onOpen={() => isModalOpen(true)}
+      onClose={handleClose}
+      onOpen={handleOpen}
       open={open}
       trigger={
         <Button inverted color={modalColor}>
@@ -29,7 +44,7 @@ const InventoryModal = ({
       <ModalContent>{children}</ModalContent>
 
       <Modal.Actions>
-        <Button color="black" onClick={() => isModalOpen(false)}>
+        <Button color="black" onClick={handleClose}>
           Cancel
         </Button>
         <Button
@@ -37,7 +52,7 @@ const InventoryModal = ({
           labelPosition="right"
           icon={modalIcon}
           inverted
-          onClick={() => isModalOpen(false)}
+          onClick={handleSubmit}
           color={modalColor}
         />
       </Modal.Actions>
