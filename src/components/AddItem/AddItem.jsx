@@ -34,16 +34,6 @@ const AddItem = ({ onSubmit }) => {
       // the process of disabling the toggable inputs.
       if (!wasDisabled) {
         setSoldDate(null)
-        // setFormFields({})
-        // setFormFields((prevFormFields) => {
-        //   // Get inputs that are not disabled and set them as the new state,
-        //   // effectively clearing the toggleable fields
-        //   const filteredFormFields = prevFormFields.filter((field) => {
-        //     return !field.isDisabled
-        //   })
-        //   console.log(filteredFormFields)
-        //   return [...filteredFormFields]
-        // })
         setFormFields(() => {
           formFields.togglableFields = []
           return formFields
@@ -123,7 +113,6 @@ const AddItem = ({ onSubmit }) => {
             label="Name"
             placeholder="Air Jordan 1 High Mocha"
             width={XLARGE}
-            disabled={false}
             name="itemName"
             onChange={handleFormInput}
           />
@@ -134,7 +123,6 @@ const AddItem = ({ onSubmit }) => {
               search
               selection
               options={sizeOptions}
-              disabled={false}
               name="itemSize"
               onChange={handleFormInput}
             />
@@ -143,7 +131,6 @@ const AddItem = ({ onSubmit }) => {
             label="Color"
             placeholder="Brown"
             width={MEDIUM}
-            disabled={false}
             name="itemColor"
             onChange={handleFormInput}
           />
@@ -151,7 +138,6 @@ const AddItem = ({ onSubmit }) => {
             label="SKU"
             placeholder="555088-105"
             width={LARGE}
-            disabled={false}
             name="itemSKU"
             onChange={handleFormInput}
           />
@@ -161,7 +147,6 @@ const AddItem = ({ onSubmit }) => {
             label="Purchased Where"
             placeholder="Footlocker"
             width={LARGE}
-            disabled={false}
           />
           <Form.Input label="Purchase Date" fluid disabled={false}>
             <DatePicker
@@ -182,7 +167,6 @@ const AddItem = ({ onSubmit }) => {
             type="number"
             labelPosition="left"
             width={SMALL}
-            disabled={false}
             name="itemPurchaseRetail"
             onChange={handleFormInput}
           >
@@ -195,7 +179,6 @@ const AddItem = ({ onSubmit }) => {
             type="number"
             labelPosition="left"
             width={SMALL}
-            disabled={false}
             name="itemPurchaseTax"
             onChange={handleFormInput}
           >
@@ -208,7 +191,6 @@ const AddItem = ({ onSubmit }) => {
             type="number"
             labelPosition="left"
             width={SMALL}
-            disabled={false}
             name="itemPurchaseShipping"
             onChange={handleFormInput}
           >
@@ -222,7 +204,6 @@ const AddItem = ({ onSubmit }) => {
             type="number"
             labelPosition="left"
             width={SMALL}
-            disabled={false}
             name="itemPurchaseTotal"
             onChange={handleFormInput}
           >

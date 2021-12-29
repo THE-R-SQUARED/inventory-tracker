@@ -23,7 +23,7 @@ const InventoryModal = ({
   }
 
   const handleSubmit = () => {
-    console.log('calling handleSubit in InventoryModal')
+    console.log('calling handleSubmit in InventoryModal')
     handleClose()
     onModalSubmit()
   }
