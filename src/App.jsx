@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container } from 'semantic-ui-react'
 import styled from 'styled-components'
 
@@ -22,20 +22,31 @@ const ContentContainer = styled.div({
   height: '100%',
 })
 
-const App = () => (
-  <PageContainer>
-    <SideBar />
-    <ContentContainer>
-      <MenuBar />
-      <Container fluid textAlign="center">
-        {` pages go here (like the inventory, sales and home page)`}
-        <AddItem />
-        <ModifyItem />
-        <RemoveItem />
-        <SoldItem />
-      </Container>
-    </ContentContainer>
-  </PageContainer>
-)
+const App = () => {
+  const [addItemValues, setAddItemValues] = useState({})
+
+  const handleAddItemSubmit = ({ addItemFormFields }) => {
+    console.log('calling handleSubmit in App', addItemValues)
+    setAddItemValues(addItemFormFields)
+  }
+
+  return (
+    <PageContainer>
+      <SideBar />
+      <ContentContainer>
+        <MenuBar />
+        <Container fluid textAlign="center">
+          {` pages go here (like the inventory, sales and home page)`}
+          <AddItem onSubmit={handleAddItemSubmit} />
+          <ModifyItem />
+          <RemoveItem />
+          <SoldItem />
+          {/* How do i reference the AddItem stuff here??? */}
+          <div>{JSON.stringify(addItemValues)}</div>
+        </Container>
+      </ContentContainer>
+    </PageContainer>
+  )
+}
 
 export default App

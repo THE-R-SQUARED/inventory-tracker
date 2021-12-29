@@ -1,2 +1,44 @@
 Git commands
 git checkout -b "name-your-branch"
+
+
+Useful JS Functions
+
+[].find( (currentElement) => // boolean using the current element and some other value you are trying to match )
+    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+    * returns you back the element (reference) that matches the condition. This will return immediately as soon as it finds it. 
+
+[].filter( same signature and return as above) 
+    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+    * return you back a new list with the elements that match your condition.
+
+[].reduce( )
+    * uses the list and consolidates to one value based on the logic given in the reducer. 
+        * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+    * Example: a sum function. [1,2,3].reduce( // logic ) 
+            * returns "6"
+    returns you back a values that was 
+    * Usecases 
+        * [1,2,3] => { } 
+
+[].map
+    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+    * Think of this as a transformation object. It will loop through every item in the array and return back a new item that will
+    * take it's place in the new index. 
+    * Usecases: 
+        * transforming an array of ints into an array of strings
+        * returning back an array of objects into new objects with more values.
+
+[].forEach
+    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+    * Basically like map but you do not return anything. You would do some operation that would not involve returning
+     a value. Example "console.log "
+
+[].every 
+    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+    * returns true or false if all items in the array match the condition
+
+[].some
+    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+    * return true if one of the elements match the condition
+

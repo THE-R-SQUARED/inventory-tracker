@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Label, Dropdown } from 'semantic-ui-react'
+import DatePicker from 'react-datepicker'
 import InventoryModal from '../InventoryModal'
 import {
   SMALL,
@@ -9,6 +10,7 @@ import {
   ABSOLUTE,
 } from '../../constants/form-styling'
 import SIZES from '../../constants/item-info'
+import 'react-datepicker/dist/react-datepicker.css'
 
 const sizeOptions = SIZES.map((size) => ({
   key: size,
@@ -17,6 +19,8 @@ const sizeOptions = SIZES.map((size) => ({
 }))
 
 const ModifyItem = () => {
+  const [dpPurchaseDate, setPurchaseDate] = useState('')
+  const [dpSoldDate, setSoldDate] = useState('')
   return (
     <InventoryModal
       modalButtonText="Edit"
@@ -52,11 +56,16 @@ const ModifyItem = () => {
             placeholder="Footlocker"
             width={LARGE}
           />
-          <Form.Input
-            label="Purchase Date"
-            placeholder="08/25/2022"
-            width={MEDIUM}
-          />
+          <Form.Input label="Purchase Date" fluid>
+            <DatePicker
+              selected={dpPurchaseDate}
+              onChange={(date) => setPurchaseDate(date)}
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
+            />
+          </Form.Input>
           <Form.Input
             label="Retail Price"
             placeholder="180"
@@ -101,11 +110,16 @@ const ModifyItem = () => {
         </Form.Group>
         <Form.Group>
           <Form.Input label="Sold Where" placeholder="StockX" width={LARGE} />
-          <Form.Input
-            label="Sell Date"
-            placeholder="08/26/2022"
-            width={MEDIUM}
-          />
+          <Form.Input label="Sell Date" fluid>
+            <DatePicker
+              selected={dpSoldDate}
+              onChange={(date) => setSoldDate(date)}
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
+            />
+          </Form.Input>
           <Form.Input
             label="Sell Price"
             placeholder="1000"

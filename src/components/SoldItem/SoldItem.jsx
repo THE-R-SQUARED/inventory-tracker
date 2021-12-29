@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Label } from 'semantic-ui-react'
+import DatePicker from 'react-datepicker'
 import InventoryModal from '../InventoryModal'
-import { SMALL, MEDIUM, LARGE } from '../../constants/form-styling'
+import { SMALL, LARGE } from '../../constants/form-styling'
+import 'react-datepicker/dist/react-datepicker.css'
 
 const SoldItem = () => {
+  const [dpSoldDate, setSoldDate] = useState('')
   return (
     <InventoryModal
       modalButtonText="Mark Sold"
@@ -16,11 +19,16 @@ const SoldItem = () => {
       <Form>
         <Form.Group>
           <Form.Input label="Sold Where" placeholder="StockX" width={LARGE} />
-          <Form.Input
-            label="Sell Date"
-            placeholder="08/26/2022"
-            width={MEDIUM}
-          />
+          <Form.Input label="Sold Date" fluid>
+            <DatePicker
+              selected={dpSoldDate}
+              onChange={(date) => setSoldDate(date)}
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
+            />
+          </Form.Input>
           <Form.Input
             label="Sell Price"
             placeholder="1000"

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Checkbox, Label, Dropdown } from 'semantic-ui-react'
+import DatePicker from 'react-datepicker'
 import InventoryModal from '../InventoryModal'
 import {
   SMALL,
@@ -9,21 +10,17 @@ import {
   ABSOLUTE,
 } from '../../constants/form-styling'
 import '../../styles/modal.css'
+import 'react-datepicker/dist/react-datepicker.css'
 import SIZES from '../../constants/item-info'
 
-const AddItem = () => {
+const AddItem = ({ onSubmit }) => {
   const [disabled, toggleDisabledOnSoldFields] = useState(true)
-
-  const [formFields, setFormFields] = useState({})
-
-  const {
-    soldWhere = '',
-    soldDate = '',
-    soldPrice = '',
-    soldTax = '',
-    soldShipping = '',
-    soldTotal = '',
-  } = formFields
+  const [formFields, setFormFields] = useState({
+    fields: [],
+    togglableFields: [],
+  })
+  const [dpPurchaseDate, setPurchaseDate] = useState(null)
+  const [dpSoldDate, setSoldDate] = useState(null)
 
   const sizeOptions = SIZES.map((size) => ({
     key: size,
@@ -31,22 +28,83 @@ const AddItem = () => {
     value: size,
   }))
 
-  // // name, value
-  const handleChange = (e, { name, value }) => {
-    // console.log({ name, value })
-    setFormFields((prevFormFields) => ({
-      ...prevFormFields,
-      [name]: value,
-    }))
+  const handleClear = () => {
+    toggleDisabledOnSoldFields((wasDisabled) => {
+      // If it was not diabled, this means that we want to go through
+      // the process of disabling the toggable inputs.
+      if (!wasDisabled) {
+        setSoldDate(null)
+        // setFormFields({})
+        // setFormFields((prevFormFields) => {
+        //   // Get inputs that are not disabled and set them as the new state,
+        //   // effectively clearing the toggleable fields
+        //   const filteredFormFields = prevFormFields.filter((field) => {
+        //     return !field.isDisabled
+        //   })
+        //   console.log(filteredFormFields)
+        //   return [...filteredFormFields]
+        // })
+        setFormFields(() => {
+          formFields.togglableFields = []
+          return formFields
+        })
+      }
+      return !wasDisabled
+    })
   }
 
-  // console.log(soldWhere)
-  // useEffect(() => {
-  //   setFormFields((prevFormFields) => ({
-  //     ...prevFormFields,
-  //     soldDate: soldWhere,
-  //   }))
-  // }, [soldWhere])
+  const handleSubmit = () => {
+    console.log('calling handleSubmit in AddItems')
+    JSON.stringify(formFields)
+    onSubmit({ addItemFormFields: formFields })
+  }
+
+  const handleTogglableFormInput = (e, { name, value }) => {
+    setFormFields((prevFormFields) => {
+      const { togglableFields } = prevFormFields
+      const newFields = togglableFields.filter(
+        (element) => element.name !== name
+      )
+      return {
+        ...prevFormFields,
+        togglableFields: [...newFields, { name, value }],
+      }
+    })
+  }
+
+  const handleFormInput = (e, { name, value }) => {
+    setFormFields((prevFormFields) => {
+      const { fields } = prevFormFields
+      // No duplicates
+      const newFields = fields.filter((element) => element.name !== name)
+
+      return {
+        ...prevFormFields,
+        fields: [...newFields, { name, value }],
+      }
+    })
+  }
+
+  const addDateField = (dateType, dateValue) => {
+    setFormFields((prevFormFields) => {
+      if (dateType === 'itemPurchaseDate') {
+        const { fields } = prevFormFields
+        const newFields = fields.filter((element) => element.name !== dateType)
+        return {
+          ...prevFormFields,
+          fields: [...newFields, { name: dateType, dateValue }],
+        }
+      }
+      const { togglableFields } = prevFormFields
+      const newFields = togglableFields.filter(
+        (element) => element.name !== dateType
+      )
+      return {
+        ...prevFormFields,
+        togglableFields: [...newFields, { name: dateType, dateValue }],
+      }
+    })
+  }
 
   return (
     <InventoryModal
@@ -56,6 +114,7 @@ const AddItem = () => {
       modalIcon="plus"
       modalActionButtonText="Add to Inventory"
       modalCSS="add-item-modal-header"
+      onModalSubmit={handleSubmit}
     >
       <Form>
         <Form.Group>
@@ -64,6 +123,9 @@ const AddItem = () => {
             label="Name"
             placeholder="Air Jordan 1 High Mocha"
             width={XLARGE}
+            disabled={false}
+            name="itemName"
+            onChange={handleFormInput}
           />
           <Form.Input label="Size" width={SMALL}>
             <Dropdown
@@ -72,28 +134,57 @@ const AddItem = () => {
               search
               selection
               options={sizeOptions}
+              disabled={false}
+              name="itemSize"
+              onChange={handleFormInput}
             />
           </Form.Input>
-          <Form.Input label="Color" placeholder="Brown" width={MEDIUM} />
-          <Form.Input label="SKU" placeholder="555088-105" width={LARGE} />
+          <Form.Input
+            label="Color"
+            placeholder="Brown"
+            width={MEDIUM}
+            disabled={false}
+            name="itemColor"
+            onChange={handleFormInput}
+          />
+          <Form.Input
+            label="SKU"
+            placeholder="555088-105"
+            width={LARGE}
+            disabled={false}
+            name="itemSKU"
+            onChange={handleFormInput}
+          />
         </Form.Group>
         <Form.Group>
           <Form.Input
             label="Purchased Where"
             placeholder="Footlocker"
             width={LARGE}
+            disabled={false}
           />
-          <Form.Input
-            label="Purchase Date"
-            placeholder="08/25/2022"
-            width={MEDIUM}
-          />
+          <Form.Input label="Purchase Date" fluid disabled={false}>
+            <DatePicker
+              selected={dpPurchaseDate}
+              onChange={(date) => {
+                setPurchaseDate(date)
+                addDateField('itemPurchaseDate', date)
+              }}
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
+            />
+          </Form.Input>
           <Form.Input
             label="Retail Price"
             placeholder="180"
             type="number"
             labelPosition="left"
             width={SMALL}
+            disabled={false}
+            name="itemPurchaseRetail"
+            onChange={handleFormInput}
           >
             <Label basic>$</Label>
             <input />
@@ -104,6 +195,9 @@ const AddItem = () => {
             type="number"
             labelPosition="left"
             width={SMALL}
+            disabled={false}
+            name="itemPurchaseTax"
+            onChange={handleFormInput}
           >
             <Label basic>$</Label>
             <input />
@@ -114,6 +208,9 @@ const AddItem = () => {
             type="number"
             labelPosition="left"
             width={SMALL}
+            disabled={false}
+            name="itemPurchaseShipping"
+            onChange={handleFormInput}
           >
             <Label basic>$</Label>
             <input />
@@ -125,6 +222,9 @@ const AddItem = () => {
             type="number"
             labelPosition="left"
             width={SMALL}
+            disabled={false}
+            name="itemPurchaseTotal"
+            onChange={handleFormInput}
           >
             <Label basic>$</Label>
             <input />
@@ -132,35 +232,32 @@ const AddItem = () => {
         </Form.Group>
         <br />
         <div>
-          <Checkbox
-            label="Item Already Sold?"
-            onChange={() => {
-              setFormFields({})
-              toggleDisabledOnSoldFields(!disabled)
-            }}
-          />
+          <Checkbox label="Item Already Sold?" onChange={handleClear} />
         </div>
         <br />
         <Form.Group>
-          {/* <Message header={JSON.stringify(formFields)} /> */}
           <Form.Input
             label="Sold Where"
             placeholder="StockX"
             width={LARGE}
             disabled={disabled}
             name="soldWhere"
-            value={soldWhere}
-            onChange={handleChange}
+            onChange={handleTogglableFormInput}
           />
-          <Form.Input
-            label="Sell Date"
-            placeholder="08/26/2022"
-            width={MEDIUM}
-            disabled={disabled}
-            name="soldDate"
-            value={soldDate}
-            onChange={handleChange}
-          />
+          <Form.Input label="Sell Date" fluid disabled={disabled}>
+            <DatePicker
+              selected={dpSoldDate}
+              onChange={(date) => {
+                setSoldDate(date)
+                addDateField('itemSoldDate', date)
+              }}
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
+              isClearable
+            />
+          </Form.Input>
           <Form.Input
             label="Sell Price"
             placeholder="1000"
@@ -168,8 +265,7 @@ const AddItem = () => {
             width={SMALL}
             disabled={disabled}
             name="soldPrice"
-            value={soldPrice}
-            onChange={handleChange}
+            onChange={handleTogglableFormInput}
             labelPosition="left"
           >
             <Label basic>$</Label>
@@ -182,8 +278,7 @@ const AddItem = () => {
             width={SMALL}
             disabled={disabled}
             name="soldTax"
-            value={soldTax}
-            onChange={handleChange}
+            onChange={handleTogglableFormInput}
             labelPosition="left"
           >
             <Label basic>$</Label>
@@ -196,8 +291,7 @@ const AddItem = () => {
             width={SMALL}
             disabled={disabled}
             name="soldShipping"
-            value={soldShipping}
-            onChange={handleChange}
+            onChange={handleTogglableFormInput}
             labelPosition="left"
           >
             <Label basic>$</Label>
@@ -211,8 +305,7 @@ const AddItem = () => {
             width={SMALL}
             disabled={disabled}
             name="soldTotal"
-            value={soldTotal}
-            onChange={handleChange}
+            onChange={handleTogglableFormInput}
             labelPosition="left"
           >
             <Label basic>$</Label>
@@ -220,12 +313,14 @@ const AddItem = () => {
           </Form.Input>
         </Form.Group>
         <Form.Group>
-          <Form.Input
+          <Form.TextArea
             label="Notes"
             placeholder="Sold to John Smith at Kobey's Swapmeet"
-            control="textarea"
             rows="3"
             width={ABSOLUTE}
+            disabled={false}
+            name="notes"
+            onChange={handleFormInput}
           />
         </Form.Group>
       </Form>
