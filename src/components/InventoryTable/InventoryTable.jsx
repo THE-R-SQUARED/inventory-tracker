@@ -139,19 +139,16 @@ const InventoryTable = () => {
       ]}
       options={{
         sorting: true,
-        fixedColumns: {
-          //   left: 1,
-          right: 3,
-        },
+        // fixedColumns: {
+        //   //   left: 1,
+        //   right: 3,
+        // },
         headerStyle: {
           backgroundColor: 'teal',
           color: 'white',
           whiteSpace: 'nowrap',
         },
-        // tableLayout: 'auto',
-        rowStyle: {
-          overflowWrap: 'break-word',
-        },
+        tableLayout: 'auto',
       }}
     />
   )

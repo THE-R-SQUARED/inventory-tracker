@@ -44,7 +44,9 @@ const App = () => {
           <SoldItem />
           {/* How do i reference the AddItem stuff here??? */}
           <div>{JSON.stringify(addItemValues)}</div>
-          <InventoryTable />
+          <div className="inventory-table-container">
+            <InventoryTable />
+          </div>
         </Container>
       </ContentContainer>
     </PageContainer>
