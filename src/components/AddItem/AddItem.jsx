@@ -147,6 +147,8 @@ const AddItem = ({ onSubmit }) => {
             label="Purchased Where"
             placeholder="Footlocker"
             width={LARGE}
+            name="itemPurchaseWhere"
+            onChange={handleFormInput}
           />
           <Form.Input label="Purchase Date" fluid disabled={false}>
             <DatePicker
@@ -230,7 +232,7 @@ const AddItem = ({ onSubmit }) => {
               selected={dpSoldDate}
               onChange={(date) => {
                 setSoldDate(date)
-                addDateField('itemSoldDate', date)
+                addDateField('soldDate', date)
               }}
               peekNextMonth
               showMonthDropdown

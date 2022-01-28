@@ -8,6 +8,7 @@ import AddItem from './components/AddItem'
 import ModifyItem from './components/ModifyItem'
 import RemoveItem from './components/RemoveItem'
 import SoldItem from './components/SoldItem'
+import InventoryTable from './components/InventoryTable'
 import SideBar from './layouts/SideBar'
 import MenuBar from './layouts/MenuBar'
 
@@ -43,6 +44,9 @@ const App = () => {
           <SoldItem />
           {/* How do i reference the AddItem stuff here??? */}
           <div>{JSON.stringify(addItemValues)}</div>
+          <div className="inventory-table-container">
+            <InventoryTable />
+          </div>
         </Container>
       </ContentContainer>
     </PageContainer>
