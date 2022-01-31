@@ -1,12 +1,14 @@
 const router = require('express').Router();
 let Item = require('../models/item.model');
 
+// Get list of items in database collection
 router.route('/').get((req, res) => {
     Item.find()
         .then(items => res.json(items))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+// Add new item
 router.route('/add').post((req, res) => {
     const itemName = req.body.itemName;
     const itemSize = req.body.itemSize;
@@ -51,18 +53,21 @@ router.route('/add').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+// Get info/details of specific item
 router.route('/:id').get((req, res) => {
     Item.findById(req.params.id)
         .then(item => res.json(item))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+// Delete item from database collection
 router.route('/:id').delete((req, res) => {
     Item.findByIdAndDelete(req.params.id)
         .then(() => res.json('Item deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+// Update a specific item's info
 router.route('/update/:id').post((req, res) => {
     Item.findById(req.params.id)
         .then(item => {
