@@ -147,7 +147,7 @@ const AddItem = ({ onSubmit }) => {
             label="Purchased Where"
             placeholder="Footlocker"
             width={LARGE}
-            name="itemPurchaseWhere"
+            name="purchasedWhere"
             onChange={handleFormInput}
           />
           <Form.Input label="Purchase Date" fluid disabled={false}>
@@ -155,7 +155,7 @@ const AddItem = ({ onSubmit }) => {
               selected={dpPurchaseDate}
               onChange={(date) => {
                 setPurchaseDate(date)
-                addDateField('itemPurchaseDate', date)
+                addDateField('purchasedDate', date)
               }}
               peekNextMonth
               showMonthDropdown
@@ -169,7 +169,7 @@ const AddItem = ({ onSubmit }) => {
             type="number"
             labelPosition="left"
             width={SMALL}
-            name="itemPurchaseRetail"
+            name="purchasedRetail"
             onChange={handleFormInput}
           >
             <Label basic>$</Label>
@@ -181,7 +181,7 @@ const AddItem = ({ onSubmit }) => {
             type="number"
             labelPosition="left"
             width={SMALL}
-            name="itemPurchaseTax"
+            name="purchasedTax"
             onChange={handleFormInput}
           >
             <Label basic>$</Label>
@@ -193,7 +193,7 @@ const AddItem = ({ onSubmit }) => {
             type="number"
             labelPosition="left"
             width={SMALL}
-            name="itemPurchaseShipping"
+            name="purchasedShipping"
             onChange={handleFormInput}
           >
             <Label basic>$</Label>
@@ -206,7 +206,7 @@ const AddItem = ({ onSubmit }) => {
             type="number"
             labelPosition="left"
             width={SMALL}
-            name="itemPurchaseTotal"
+            name="purchasedTotal"
             onChange={handleFormInput}
           >
             <Label basic>$</Label>
