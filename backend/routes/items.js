@@ -9,7 +9,7 @@ router.route('/').get((req, res) => {
 });
 
 // Add new item
-router.route('/add').post((req, res) => {
+router.route('/').post((req, res) => {
     const itemName = req.body.itemName;
     const itemSize = req.body.itemSize;
     const itemColor = req.body.itemColor;
@@ -68,30 +68,10 @@ router.route('/:id').delete((req, res) => {
 });
 
 // Update a specific item's info
-router.route('/update/:id').post((req, res) => {
-    Item.findById(req.params.id)
+router.route('/:id').put((req, res) => {
+    Item.findByIdAndUpdate(req.params.id, req.body, {new:true})
         .then(item => {
-            item.itemName = req.body.itemName;
-            item.itemSize = req.body.itemSize;
-            item.itemColor = req.body.itemColor;
-            item.itemSKU = req.body.itemSKU;
-            item.purchasedWhere = req.body.purchasedWhere;
-            item.purchasedDate = req.body.purchasedDate;
-            item.purchasedRetail = Number(req.body.purchasedRetail);
-            item.purchasedTax = Number(req.body.purchasedTax);
-            item.purchasedShipping = Number(req.body.purchasedShipping);
-            item.purchasedTotal = Number(req.body.purchasedTotal);
-            item.soldWhere = req.body.soldWhere;
-            item.soldDate = req.body.soldDate;
-            item.soldPrice = Number(req.body.soldPrice);
-            item.soldTax = Number(req.body.soldTax);
-            item.soldShipping = Number(req.body.soldShipping);
-            item.soldTotal = Number(req.body.soldTotal);
-            item.notes = req.body.notes;
-
-            item.save()
-                .then(() => res.json('Item updated!'))
-                .catch(err => res.status(400).json('Error: ' + err));
+            res.send(item);
         })
         .catch(err => res.status(400).json('Error: ' + err));
 });

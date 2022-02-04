@@ -23,7 +23,7 @@ connection.once('open', () => {
 
 const itemsRouter = require('./routes/items');
 
-app.use('/items', itemsRouter);
+app.use('/api/items', itemsRouter);
 
 // Starts the server
 app.listen(port, () => {
