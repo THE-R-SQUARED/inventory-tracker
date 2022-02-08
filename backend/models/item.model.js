@@ -26,7 +26,6 @@ const itemSchema = new Schema({
 }, {
     timestamps: true,
 });
-// is it better to have default as undefined? or as empty string "" or 0
 
 const Item = mongoose.model('Item', itemSchema);
 
