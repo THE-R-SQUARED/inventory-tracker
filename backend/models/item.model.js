@@ -7,25 +7,26 @@ const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
     itemName: { type: String, trim: true, required: true },
-    itemSize: { type: String, trim: true, required: false },
-    itemColor: { type: String, trim: true, required: false },
-    itemSKU: { type: String, trim: true, required: false },
-    purchasedWhere: { type: String, trim: true, required: false },
-    purchasedDate: { type: String, required: false },
-    purchasedRetail: { type: Number, min: 0, required: false },
-    purchasedTax: { type: Number, min: 0, required: false },
-    purchasedShipping: { type: Number, min: 0, required: false },
+    itemSize: { type: String, trim: true, required: true },
+    itemColor: { type: String, trim: true },
+    itemSKU: { type: String, trim: true },
+    purchasedWhere: { type: String, trim: true },
+    purchasedDate: { type: String, trim: true },
+    purchasedRetail: { type: Number, min: 0 },
+    purchasedTax: { type: Number, min: 0 },
+    purchasedShipping: { type: Number, min: 0 },
     purchasedTotal: { type: Number, min: 0, required: true },
-    soldWhere: { type: String, trim: true, required: false },
-    soldDate: { type: String, trim: true, required: false },
-    soldPrice: { type: Number, min: 0, required: false },
-    soldTax: { type: Number, min: 0, required: false },
-    soldShipping: { type: Number, min: 0, required: false },
-    soldTotal: { type: Number, min: 0, required: false },
-    notes: { type: String, trim: true, required: false },
+    soldWhere: { type: String, trim: true, },
+    soldDate: { type: String, trim: true },
+    soldPrice: { type: Number, min: 0 },
+    soldTax: { type: Number, min: 0 },
+    soldShipping: { type: Number, min: 0 },
+    soldTotal: { type: Number, min: 0 },
+    notes: { type: String, trim: true},
 }, {
     timestamps: true,
 });
+// is it better to have default as undefined? or as empty string "" or 0
 
 const Item = mongoose.model('Item', itemSchema);
 

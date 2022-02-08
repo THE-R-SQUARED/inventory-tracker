@@ -1,13 +1,6 @@
 const router = require('express').Router();
 let Item = require('../models/item.model');
 
-// Get list of items in database collection
-router.route('/').get((req, res) => {
-    Item.find()
-        .then(items => res.json(items))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
-
 // Add new item
 router.route('/').post((req, res) => {
     const itemName = req.body.itemName;
@@ -16,16 +9,16 @@ router.route('/').post((req, res) => {
     const itemSKU = req.body.itemSKU;
     const purchasedWhere = req.body.purchasedWhere;
     const purchasedDate = req.body.purchasedDate;
-    const purchasedRetail = Number(req.body.purchasedRetail);
-    const purchasedTax = Number(req.body.purchasedTax);
-    const purchasedShipping = Number(req.body.purchasedShipping);
-    const purchasedTotal = Number(req.body.purchasedTotal);
+    const purchasedRetail = req.body.purchasedRetail;
+    const purchasedTax = req.body.purchasedTax;
+    const purchasedShipping = req.body.purchasedShipping;
+    const purchasedTotal = req.body.purchasedTotal;
     const soldWhere = req.body.soldWhere;
     const soldDate = req.body.soldDate;
-    const soldPrice = Number(req.body.soldPrice);
-    const soldTax = Number(req.body.soldTax);
-    const soldShipping = Number(req.body.soldShipping);
-    const soldTotal = Number(req.body.soldTotal);
+    const soldPrice = req.body.soldPrice;
+    const soldTax = req.body.soldTax;
+    const soldShipping = req.body.soldShipping;
+    const soldTotal = req.body.soldTotal;
     const notes = req.body.notes;
     
     const newItem = new Item({
@@ -53,17 +46,17 @@ router.route('/').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+// Get list of items in database collection
+router.route('/').get((req, res) => {
+    Item.find()
+        .then(items => res.json(items))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 // Get info/details of specific item
 router.route('/:id').get((req, res) => {
     Item.findById(req.params.id)
         .then(item => res.json(item))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
-
-// Delete item from database collection
-router.route('/:id').delete((req, res) => {
-    Item.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Item deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -73,6 +66,13 @@ router.route('/:id').put((req, res) => {
         .then(item => {
             res.send(item);
         })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+// Delete item from database collection
+router.route('/:id').delete((req, res) => {
+    Item.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Item deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
