@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Container } from 'semantic-ui-react'
 import styled from 'styled-components'
+import axios from 'axios'
 
 import './styles/app.css'
 
@@ -25,7 +26,12 @@ const App = () => {
 
     const handleAddItemSubmit = ({ addItemFormFields }) => {
         console.log('calling handleSubmit in App', addItemValues)
+        console.log(addItemFormFields)
         setAddItemValues(addItemFormFields)
+        // console.log(JSON.stringify(addItemValues))
+        axios
+            .post(process.env.ITEMS_ENDPOINT, JSON.parse(addItemFormFields))
+            .then((res) => console.log(res.data))
     }
 
     return (
@@ -34,10 +40,7 @@ const App = () => {
             <ContentContainer>
                 <MenuBar />
                 <Container fluid textAlign="center">
-                    {/* pages go here (like the inventory, sales and home page) */}
                     <AddItem onSubmit={handleAddItemSubmit} />
-                    {/* How do i reference the AddItem stuff here??? */}
-                    {/* <div>{JSON.stringify(addItemValues)}</div> */}
                     <div className="inventory-table-container">
                         <InventoryTable />
                     </div>

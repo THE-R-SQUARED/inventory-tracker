@@ -45,8 +45,16 @@ const AddItem = ({ onSubmit }) => {
 
     const handleSubmit = () => {
         console.log('calling handleSubmit in AddItems')
-        JSON.stringify(formFields)
-        onSubmit({ addItemFormFields: formFields })
+        const fieldsToSubmit = {}
+        for (let i = 0; i < formFields.fields.length; i += 1) {
+            fieldsToSubmit[formFields.fields[i].name] =
+                formFields.fields[i].value
+        }
+        for (let i = 0; i < formFields.togglableFields.length; i += 1) {
+            fieldsToSubmit[formFields.togglableFields[i].name] =
+                formFields.fields[i].value
+        }
+        onSubmit({ addItemFormFields: JSON.stringify(fieldsToSubmit) })
     }
 
     const handleTogglableFormInput = (e, { name, value }) => {
@@ -77,14 +85,17 @@ const AddItem = ({ onSubmit }) => {
 
     const addDateField = (dateType, dateValue) => {
         setFormFields((prevFormFields) => {
-            if (dateType === 'itemPurchaseDate') {
+            if (dateType === 'purchasedDate') {
                 const { fields } = prevFormFields
                 const newFields = fields.filter(
                     (element) => element.name !== dateType
                 )
                 return {
                     ...prevFormFields,
-                    fields: [...newFields, { name: dateType, dateValue }],
+                    fields: [
+                        ...newFields,
+                        { name: dateType, value: dateValue },
+                    ],
                 }
             }
             const { togglableFields } = prevFormFields
@@ -93,7 +104,10 @@ const AddItem = ({ onSubmit }) => {
             )
             return {
                 ...prevFormFields,
-                togglableFields: [...newFields, { name: dateType, dateValue }],
+                togglableFields: [
+                    ...newFields,
+                    { name: dateType, value: dateValue },
+                ],
             }
         })
     }
@@ -118,7 +132,7 @@ const AddItem = ({ onSubmit }) => {
                         name="itemName"
                         onChange={handleFormInput}
                     />
-                    <Form.Input label="Size" width={SMALL}>
+                    <Form.Input label="Size" width={SMALL} required>
                         <Dropdown
                             fluid
                             placeholder="Size"
